@@ -151,9 +151,18 @@
 				{{#if highlights.length}}
 				<h4>Highlights</h4>
 				<ul class="highlights">
-					{{#highlights}}
-					<li class="bullet">{{.}}</li>
-					{{/highlights}}
+					{{#each highlights}}
+						{{#if this.title}}
+							<li class="bullet">{{this.title}}</li>
+							<ul class="highlight-points">
+								{{#this.highlights}}
+									<li class="bullet">{{.}}</li>
+								{{/this.highlights}}
+							</ul>
+						{{else}}
+							<li class="bullet">{{.}}</li>
+						{{/if}}
+					{{/each}}
 				</ul>
 				{{/if}}
 			</div>
